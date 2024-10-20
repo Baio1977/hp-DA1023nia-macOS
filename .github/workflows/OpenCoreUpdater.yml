@@ -48,7 +48,7 @@ jobs:
 
     - name: Copy Kexts to EFI/OC/Kexts
       run: |
-        KEXT_SOURCE="./kext"  # Adjust this as necessary
+        KEXT_SOURCE="./OC/Kext"  # Adjust this as necessary
         KEXT_TARGET="./EFI/OC/Kexts"
         mkdir -p "$KEXT_TARGET"
         if [ -d "$KEXT_SOURCE" ]; then
@@ -62,12 +62,12 @@ jobs:
     - name: Copy Resources to EFI/OC
       run: |
         echo "Copying Config.plist to EFI/OC..."
-        cp -r ./Resources ./EFI/OC/
+        cp -r ./OC/Resources ./EFI/OC/
         
     - name: Copy Config.plist to EFI/OC
       run: |
         echo "Copying Config.plist to EFI/OC..."
-        cp ./Config.plist ./EFI/OC/
+        cp ./OC/Config.plist ./EFI/OC/
 
     - name: Remove all files in EFI/OC/Tools
       run: |
@@ -88,17 +88,12 @@ jobs:
     - name: Copy HfsPlus.efi to EFI/OC/Drivers
       run: |
         echo "Copying HfsPlus.efi to EFI/OC/Drivers..."
-        cp ./HfsPlus.efi ./EFI/OC/Drivers/
-
-    - name: Copy RU.efi to EFI/OC/Tools
-      run: |
-        echo "Copying RU.efi to EFI/OC/Tools..."
-        cp ./RU.efi ./EFI/OC/Tools/
+        cp ./OC/Drivers/HfsPlus.efi ./EFI/OC/Drivers/
 
     - name: Copy SSDT-HP_da1023nia.aml to EFI/OC/ACPI
       run: |
         echo "Copying SSDT-HP_da1023nia.aml to EFI/OC/ACPI..."
-        cp ./SSDT-HP_da1023nia.aml ./EFI/OC/ACPI/
+        cp ./OC/ACPI/SSDT-HP_da1023nia.aml ./EFI/OC/ACPI/
 
     - name: Clean up
       run: |
