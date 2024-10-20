@@ -4,7 +4,8 @@ on:
   push:
     branches: 
       - main  # Change this to your default branch
-
+  workflow_dispatch:
+    
 jobs:
   download_opencore:
     runs-on: ubuntu-latest
