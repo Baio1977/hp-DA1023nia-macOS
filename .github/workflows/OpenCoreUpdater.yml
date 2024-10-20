@@ -61,7 +61,7 @@ jobs:
     
     - name: Copy Resources to EFI/OC
       run: |
-        echo "Copying Config.plist to EFI/OC..."
+        echo "Copying Resources to EFI/OC..."
         cp -r ./OC/Resources ./EFI/OC/
         
     - name: Copy Config.plist to EFI/OC
@@ -76,10 +76,10 @@ jobs:
 
     - name: Remove unwanted drivers in EFI/OC/Drivers
       run: |
-        echo "Removing files in EFI/OC/Drivers except for AudioDxe.efi, OpenCanopy.efi, OpenRuntime.efi, ToggleSipEntry.efi,and ResetNvramEntry.efi..."
+        echo "Removing files in EFI/OC/Drivers except for AudioDxe.efi, OpenCanopy.efi, OpenRuntime.efi, ToggleSipEntry.efi, ResetNvramEntry.efi..."
         cd ./EFI/OC/Drivers
         for file in *; do
-          if [[ "$file" != "AudioDxe.efi" &&"$file" != "OpenCanopy.efi" && "$file" != "OpenRuntime.efi" && "$file" != "ToggleSipEntry.efi" && "$file"!= "ResetNvramEntry.efi" ]]; then
+          if [[ "$file" != "AudioDxe.efi" && "$file" != "OpenCanopy.efi" && "$file" != "OpenRuntime.efi" && "$file" != "ToggleSipEntry.efi" && "$file" != "ResetNvramEntry.efi" ]]; then
             rm -f "$file"
           fi
         done
